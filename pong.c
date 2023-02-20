@@ -22,11 +22,11 @@ void print_field()
         {
             if(i == 0 || i == x_size)
             {
-                printf("#");
+                printf("_");
             }
-            else if(j == 0 || j == y_size)
+            if(j == 0 || j == y_size)
             {
-                printf("#");
+                printf("|");
             }
             else
             {
