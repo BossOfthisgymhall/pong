@@ -14,24 +14,19 @@ int main(){
 }
 
 
-void print_field()
-{
-    for(int i = 0; i <= x_size; i++)
-    {
-        for(int j = 0; j < y_size; j++)
-        {
-             if(j == 0 || j == y_size)
-            {
-                printf("|");
-                if(i == 0 || i == x_size)
-                {
-                    printf("_");
-                }
-                else
-                {
-                printf(" ");
-                }
-            }
-        }
-    }
-}
+// void print_field()
+// {
+//     for(int i = 0; i < y_size; i++){
+//         for(int j = 0; j < x_size; j++){
+//             if(i == 0 || i == y_size){
+//                 printf("#");
+//             }
+//             else if(j == 0 || j == x_size){
+//                 printf("#");
+//             }else{
+//                 printf(" ");
+//             }
+//         }
+//     }
+// }
+
