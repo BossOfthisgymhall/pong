@@ -20,17 +20,17 @@ void print_field()
     {
         for(int j = 0; j < y_size; j++)
         {
-            if(i == 0 || i == x_size)
-            {
-                printf("_");
-            }
-            if(j == 0 || j == y_size)
+             if(j == 0 || j == y_size)
             {
                 printf("|");
-            }
-            else
-            {
+                if(i == 0 || i == x_size)
+                {
+                    printf("_");
+                }
+                else
+                {
                 printf(" ");
+                }
             }
         }
     }
