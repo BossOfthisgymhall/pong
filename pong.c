@@ -1,6 +1,6 @@
 #include <stdio.h>
-#define x_size 80
-#define y_size 25
+#define shir 25
+#define visot 80
 
 void print_field();
 void print_players();
@@ -14,14 +14,17 @@ int main(){
 
 
 void print_field(){
-    for(int i = 0; i <= x_size; i++){
-        for(int j = 0; j <= y_size; j++){
-            if(i == 0 || i == x_size)
+    for(int i = 0; i <= shir; i++){
+        for(int j = 0; j <= visot; j++){
+            if(i == 0 || i == shir)
             {
-                printf("-");
+                printf("#");
             }
-            else if(j == 0 || j == y_size){
-                printf("|");
+            else if(j == 0 || j == visot){
+                printf("#");
+            }
+            else{
+                printf(" ");
             }
         }
         printf("\n");
