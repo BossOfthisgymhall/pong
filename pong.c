@@ -30,3 +30,14 @@ void print_field(){
         printf("\n");
     }
 }
+void print_players(){
+    char move;
+    int move_ball = 0;
+    scanf("%c", &move);
+    switch(move){
+        case "a": ball++; break;
+        case "z": ball--; break;
+        case "k": ball++; break;
+        case "m": ball--; break;
+    }
+}
