@@ -22,9 +22,9 @@ void print_field(){
             {
                 printf("#");
             }
-            else if(j == 0 || j == shir){
-                printf("#");
-            }
+            // else if(j == 0 || j == shir){
+            //     printf("#");
+            // }
             else{
                 printf(" ");
             }
@@ -46,7 +46,7 @@ void print_field(){
 //     }
 // }
 void print_players(int i, int j){
-    if(i == 13 && (j == 2 || j == 78))
+    if(i == 13 && (j == 1 || j == shir - 2))
     {
         printf("|");
     }
