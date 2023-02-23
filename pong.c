@@ -50,11 +50,11 @@ void print_players(int i, int j){
         printf("|");
     }
 }
-void game(){
+void game(int i){
     int end_game_flag = 1;
 
     do{
         print_field();
-        move_players();
+        move_players(i);
     }while(end_game_flag);
 }
