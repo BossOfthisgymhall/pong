@@ -1,10 +1,11 @@
 #include <stdio.h>
-#define shir 25
-#define visot 80
+#define visot 25
+#define shir 80
 
 void print_field();
-void print_players();
+void move_players();
 void game_rules();
+void print_players();
 
 int main(){
     
@@ -14,13 +15,14 @@ int main(){
 
 
 void print_field(){
-    for(int i = 0; i <= shir; i++){
-        for(int j = 0; j <= visot; j++){
-            if(i == 0 || i == shir)
+    for(int i = 0; i <= visot; i++){
+        for(int j = 0; j <= shir; j++){
+            print_players(i, j);
+            if(i == 0 || i == visot)
             {
                 printf("#");
             }
-            else if(j == 0 || j == visot){
+            else if(j == 0 || j == shir){
                 printf("#");
             }
             else{
@@ -30,14 +32,22 @@ void print_field(){
         printf("\n");
     }
 }
-void print_players(){
-    char move;
-    int move_ball = 0;
-    scanf("%c", &move);
-    switch(move){
-        case "a": ball++; break;
-        case "z": ball--; break;
-        case "k": ball++; break;
-        case "m": ball--; break;
+
+// void move_players(){
+//     char move;
+//     int move_ball = 0;
+//     scanf("%c", &move);
+//     switch(move){
+//         case "a": move_ball++; break;
+//         case "z": move_ball--; break;
+//         case "k": move_ball++; break;
+//         case "m": move_ball--; break;
+//         default: break;
+//     }
+// }
+void print_players(int i, int j){
+    if(i == 13 && (j == 2 || j == 78))
+    {
+        printf("|");
     }
 }
