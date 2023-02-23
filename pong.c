@@ -3,13 +3,14 @@
 #define shir 80
 
 void print_field();
-void move_players();
+void move_players(int i);
 void game_rules();
-void print_players();
+void print_players(int i, int j);
+void game();
 
 int main(){
     
-    print_field();
+    game();
     return 0;
 }
 
@@ -22,9 +23,6 @@ void print_field(){
             {
                 printf("#");
             }
-            // else if(j == 0 || j == shir){
-            //     printf("#");
-            // }
             else{
                 printf(" ");
             }
@@ -33,21 +31,30 @@ void print_field(){
     }
 }
 
-// void move_players(){
-//     char move;
-//     int move_ball = 0;
-//     scanf("%c", &move);
-//     switch(move){
-//         case "a": move_ball++; break;
-//         case "z": move_ball--; break;
-//         case "k": move_ball++; break;
-//         case "m": move_ball--; break;
-//         default: break;
-//     }
-// }
+void move_players(int i){
+    char move;
+    int move_ball_player_1 = i;
+    int move_ball_player_2 = i;
+    scanf("%c", &move);
+    switch(move){
+        case 'a': move_ball_player_1++; break;
+        case 'z': move_ball_player_1--; break;
+        case 'k': move_ball_player_2++; break;
+        case 'm': move_ball_player_2--; break;
+        default: break;
+    }
+}
 void print_players(int i, int j){
     if(i == 13 && (j == 1 || j == shir - 2))
     {
         printf("|");
     }
+}
+void game(){
+    int end_game_flag = 1;
+
+    do{
+        print_field();
+        move_players();
+    }while(end_game_flag);
 }
