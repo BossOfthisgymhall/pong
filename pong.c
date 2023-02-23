@@ -32,7 +32,7 @@ void print_field(){
     }
 }
 
-void move_players(){
+void move_players(){             //добавить в main
     char move;
     int move_ball = 0;
     scanf("%c", &move);
