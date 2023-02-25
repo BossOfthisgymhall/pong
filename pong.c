@@ -3,7 +3,7 @@
 #define shir 80
 
 void print_field();
-void move_players(int i, int j);
+int move_players(int player_1, int player_2);
 void game_rules();
 void print_players(int i, int j);
 void game();
@@ -26,30 +26,40 @@ void print_field(){
             else{
                 printf(" ");
             }
+            print_players(i, j);
         }
         printf("\n");
     }
 }
 
-void move_players(int i, int j){   
-    if(i == 13 && (j == 1 || j == shir -1))
+void print_players(int i, int j){
+    int player_1 = 13;
+    int player_2 = 13;
+    if((i >= player_1) && j == 1)
     {
-        printf("|");
+        printf("]");
     }
+    else if((i >= player_2) && j == shir - 1){
+        printf("[");
+    }
+    move_players(player_1, player_2);
+}
+int move_players(int player_1, int player_2){
     char move;
+    int flag = 1;
     move = getchar();
-    // int move_ball_player_1 = i;
-    // int move_ball_player_2 = i;
-    // move = getchar();
-    // switch(move){
-    //     case 'a': move_ball_player_1++; break;
-    //     case 'z': move_ball_player_1--; break;
-    //     case 'k': move_ball_player_2++; break;
-    //     case 'm': move_ball_player_2--; break;
-    //     default: break;
-    // }
+        switch(move){
+            case 'a': return player_1++; break;
+            case 'z': return player_1--; break;
+            case 'k': return player_2++; break;
+            case 'm': return player_2--; break;
+            default: break;
+    }
+    return flag;
 }
 void game(){
+    char move;
+    move = getchar();
     int end_game_flag = 1;
     while (end_game_flag != 10)
     {
