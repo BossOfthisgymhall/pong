@@ -3,10 +3,9 @@
 #define shir 80
 
 void print_field();
-int move_players(char move);
 void game_rules();
-void print_players(int i, int j, int player_1, int player_2);
-void game(int player_1, int player_2);
+void print_players();
+void game();
 
 int main(){
     int player_1 = 13;
@@ -16,13 +15,16 @@ int main(){
 }
 
 
-void print_field(int player_1, int player_2){
+void print_field(int player_1, int player_2, int x_ball, int y_ball){
     int i, j;    
     for(i = 0; i <= visot; i++){
         for(j = 0; j <= shir; j++){
             if(i == 0 || i == visot)
             {
-                printf("#");
+                printf("-");
+            }
+            else if (j == x_ball && i == y_ball){
+                printf("*");
             }
             else{
                 printf(" ");
@@ -48,7 +50,9 @@ void game(int player_1, int player_2){
     int end_game_flag = 1;
     while (end_game_flag != 100)
     {
-        print_field(player_1, player_2);
+        int x_ball = shir /2;
+        int y_ball = visot /2;
+        print_field(player_1, player_2, x_ball, y_ball);
         char move;
         scanf("%c", &move);
         switch(move){
