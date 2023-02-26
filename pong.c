@@ -6,6 +6,7 @@ void print_field();
 void game_rules();
 void print_players();
 void game();
+void move_ball();
 
 int main(){
     int player_1 = 13;
@@ -48,20 +49,40 @@ void print_players(int i, int j, int player_1, int player_2){
 
 void game(int player_1, int player_2){
     int end_game_flag = 1;
+    int x_ball = shir / 2;
+    int y_ball = visot / 2;
     while (end_game_flag != 100)
     {
-        int x_ball = shir /2;
-        int y_ball = visot /2;
         print_field(player_1, player_2, x_ball, y_ball);
         char move;
         scanf("%c", &move);
         switch(move){
-            case 'a': player_1++; break;
-            case 'z': player_1--; break;
-            case 'k': player_2++; break;
-            case 'm': player_2--; break;
+            case 'a': player_1--; break;
+            case 'z': player_1++; break;
+            case 'k': player_2--; break;
+            case 'm': player_2++; break;
             default: break;
         }
-        end_game_flag++;
+        move_ball(x_ball, y_ball);
+        end_game_flag++; // временное условие для проверки работы
     }
 }
+void move_ball(int *x_ball, int *y_ball){
+    if((shir >= *x_ball) && (visot >= *y_ball)){
+        x_ball++;
+        y_ball++;
+    }
+}
+//      else if((x_ball >= i && x_ball <= i) && (y_ball >=j && y_ball <= j)){
+//         x_ball--;
+//         y_ball--;
+//     }
+//      else if((x_ball >= i && x_ball <= i) && (y_ball >=j && y_ball <= j)){
+//         x_ball++;
+//         y_ball--;
+//     }
+//      else if((x_ball >= i && x_ball <= i) && (y_ball >=j && y_ball <= j)){
+//         x_ball--;
+//         y_ball++;
+//     }
+// }
