@@ -23,33 +23,29 @@ void print_field(int player_1, int player_2, int x_ball, int y_ball){
         for(j = 0; j <= shir; j++){
             if(i == 0 || i == visot)
             {
-                printf("-");
+                printf("#");
             }
             else if (j == x_ball && i == y_ball){
                 printf("*");
             }
+            else if((((player_1 >= i && player_1 <= i)) || (player_1 + 1 >= i && player_1 + 1 <= i) || 
+                    (player_1 - 1 >= i && player_1 - 1 <= i)) && j == 2)
+            {
+                printf("]");
+            }
+            else if((((player_2 >= i && player_2 <= i)) || (player_2 + 1 >= i && player_2 + 1 <= i) || 
+                    (player_2 - 1 >= i && player_2 - 1 <= i)) && j == shir - 2)
+            {
+                printf("[");
+            }
             else{
                 printf(" ");
             }
-            print_players(i, j, player_1, player_2);
         }
         printf("\n");
     }
     printf("%d\n%d\n", player_1, player_2);
 }
-
-void print_players(int i, int j, int player_1, int player_2){
-    if((((player_1 >= i && player_1 <= i)) || (player_1 + 1 >= i && player_1 + 1 <= i) || 
-    (player_1 - 1 >= i && player_1 - 1 <= i)) && j == 2)
-    {
-        printf("]");
-    }
-    else if((((player_2 >= i && player_2 <= i)) || (player_2 + 1 >= i && player_2 + 1 <= i) || 
-    (player_2 - 1 >= i && player_2 - 1 <= i)) && j == shir - 2){
-        printf("[");
-    }
-}
-
 void game(int player_1, int player_2){
     int end_game_flag = 1;
     int x_ball = shir / 2;
@@ -71,12 +67,12 @@ void game(int player_1, int player_2){
         }
         end_game_flag++; // временное условие для проверки работы
         // move_ball(x_ball, y_ball);
-    if((x_ball <= shir && x_ball >= 0) && (y_ball <= visot && y_ball >= 0))
-    {
-        x_ball++;
-        y_ball++;
-    }
-    printf("%d\n%d\n", x_ball, y_ball);
+        if((x_ball <= shir && x_ball >= 0) && (y_ball <= visot && y_ball >= 0))
+        {
+            x_ball++;
+            y_ball++;
+        }
+        printf("%d\n%d\n", x_ball, y_ball);
     }
 }
 // void move_ball(int x_ball, int y_ball){
