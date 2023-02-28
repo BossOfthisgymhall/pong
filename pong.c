@@ -6,7 +6,10 @@ void print_field();
 void game_rules();
 void print_players();
 void game();
-void move_ball();
+int situation_1();
+int situation_2();
+int situation_3();
+int situation_4();
 
 int main(){
     int player_1 = 13;
@@ -50,7 +53,7 @@ void game(int player_1, int player_2){
     int end_game_flag = 1;
     int x_ball = shir / 2;
     int y_ball = visot / 2;
-    int x_ball_prev = x_ball, y_ball_prev = y_ball;
+    int flag = 0;
     while (end_game_flag != 100)
     {
         print_field(player_1, player_2, x_ball, y_ball);
@@ -75,11 +78,14 @@ void game(int player_1, int player_2){
         printf("%d\n%d\n", x_ball, y_ball);
     }
 }
-// void move_ball(int x_ball, int y_ball){
-//     if((x_ball <= shir && x_ball >= 0) && (y_ball <= visot && y_ball >= 0))
-//     {
-//         x_ball++;
-//         y_ball++;
-//     }
-//     printf("%d\n%d\n", x_ball, y_ball);
-// }
+
+
+int situation_1(int x_ball, int y_ball, int flag){
+    if((x_ball <= shir && x_ball >= 0) && y_ball == visot){
+        flag = 1;
+    }
+    return flag;
+}
+int situation_2(int x_ball, int y_ball, int flag){
+    
+}
