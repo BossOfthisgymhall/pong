@@ -54,6 +54,7 @@ void game(int player_1, int player_2){
     int x_ball = shir / 2;
     int y_ball = visot / 2;
     int flag = 0;
+    int x_ball_prev = x_ball - 1, y_ball_prev = y_ball - 1;
     while (end_game_flag != 100)
     {
         print_field(player_1, player_2, x_ball, y_ball);
@@ -68,6 +69,9 @@ void game(int player_1, int player_2){
 
             default: break;
         }
+        situation_1(x_ball, y_ball, flag);
+        situation_2(x_ball, y_ball, flag, player_2);
+        printf("%d\n%d\n%d\n", x_ball, y_ball, flag);
         if(flag == 0)
         {
             x_ball++;
@@ -81,7 +85,6 @@ void game(int player_1, int player_2){
             x_ball--;
             y_ball--;
         }
-        printf("%d\n%d\n", x_ball, y_ball);
     }
 }
 
@@ -89,6 +92,7 @@ void game(int player_1, int player_2){
 int situation_1(int x_ball, int y_ball, int flag){
     if((x_ball <= shir && x_ball >= 0) && y_ball == visot){
         flag = 1;
+        printf("Ya tut");
     }
     return flag;
 }
