@@ -68,12 +68,18 @@ void game(int player_1, int player_2){
 
             default: break;
         }
-        end_game_flag++; // временное условие для проверки работы
-        // move_ball(x_ball, y_ball);
-        if((x_ball <= shir && x_ball >= 0) && (y_ball <= visot && y_ball >= 0))
+        if(flag == 0)
         {
             x_ball++;
             y_ball++;
+        }
+        else if(flag == 1){
+            x_ball++;
+            y_ball--;
+        }
+        else if(flag == 2){
+            x_ball--;
+            y_ball--;
         }
         printf("%d\n%d\n", x_ball, y_ball);
     }
@@ -86,6 +92,9 @@ int situation_1(int x_ball, int y_ball, int flag){
     }
     return flag;
 }
-int situation_2(int x_ball, int y_ball, int flag){
-    
+int situation_2(int x_ball, int y_ball, int flag, int player_2){
+    if((y_ball <= visot && y_ball >= 0) && (x_ball == player_2 || x_ball == player_2 -1 || x_ball == player_2 + 1 )){
+        flag = 2;
+    }
+    return flag;
 }
