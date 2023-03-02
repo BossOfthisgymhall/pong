@@ -57,21 +57,24 @@ void game(int player_1, int player_2){
         char move;
         scanf("%c", &move);
         switch(move){
-            case 'a': player_1++; break;
-            case 'z': player_1--; break;
-            case 'k': player_2++; break;
-            case 'm': player_2--; break;
+            case 'a': player_1--; break;
+            case 'z': player_1++; break;
+            case 'k': player_2--; break;
+            case 'm': player_2++; break;
 
             default: break;
         }
         if((x_ball <= shir && x_ball >= 0) && y_ball == visot - 1){
            flag = 1;
         }
-        else if((y_ball <= visot && y_ball >= 0) && (x_ball - 1 == player_2 || x_ball - 1
-         == player_2 -1 || x_ball == player_2 + 1 )){
-           flag = 2;
+        // else if((y_ball <= visot && y_ball >= 0) && (x_ball == player_2 ||
+        //  x_ball == player_2 -1 || x_ball == player_2 + 1 )){
+        //    flag = 2;
+        // }
+        else if((x_ball == shir - 1 && x_ball >= 0) && (y_ball == player_2 || y_ball == player_2 + 1 || y_ball == player_2 - 1)){
+            flag = 2;
         }
-        else if((x_ball <= shir && x_ball >= 0) && ( y_ball == 0)){
+        else if((x_ball <= shir && x_ball >= 0) && (y_ball == 1)){
             flag = 3;
         }
 
@@ -87,11 +90,11 @@ void game(int player_1, int player_2){
         }
         else if(flag == 2){
             x_ball--;
-            y_ball--;
+            y_ball++;
         }
         else if(flag == 3){
-            x_ball++;
-            y_ball++;
+            x_ball--;
+            y_ball--;
         }
     }
 }
