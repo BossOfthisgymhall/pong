@@ -6,10 +6,6 @@ void print_field();
 void game_rules();
 void print_players();
 void game();
-int situation_1();
-int situation_2();
-int situation_3();
-int situation_4();
 
 int main(){
     int player_1 = 13;
@@ -32,12 +28,12 @@ void print_field(int player_1, int player_2, int x_ball, int y_ball){
                 printf("*");
             }
             else if((((player_1 >= i && player_1 <= i)) || (player_1 + 1 >= i && player_1 + 1 <= i) || 
-                    (player_1 - 1 >= i && player_1 - 1 <= i)) && j == 2)
+                    (player_1 - 1 >= i && player_1 - 1 <= i)) && j == 1)
             {
                 printf("]");
             }
             else if((((player_2 >= i && player_2 <= i)) || (player_2 + 1 >= i && player_2 + 1 <= i) || 
-                    (player_2 - 1 >= i && player_2 - 1 <= i)) && j == shir - 2)
+                    (player_2 - 1 >= i && player_2 - 1 <= i)) && j == shir - 1)
             {
                 printf("[");
             }
@@ -58,7 +54,6 @@ void game(int player_1, int player_2){
     while (end_game_flag != 100)
     {
         print_field(player_1, player_2, x_ball, y_ball);
-        // printf("%d\n%d\n", x_ball, y_ball);
         char move;
         scanf("%c", &move);
         switch(move){
@@ -69,8 +64,17 @@ void game(int player_1, int player_2){
 
             default: break;
         }
-        situation_1(x_ball, y_ball, flag);
-        situation_2(x_ball, y_ball, flag, player_2);
+        if((x_ball <= shir && x_ball >= 0) && y_ball == visot - 1){
+           flag = 1;
+        }
+        else if((y_ball <= visot && y_ball >= 0) && (x_ball - 1 == player_2 || x_ball - 1
+         == player_2 -1 || x_ball == player_2 + 1 )){
+           flag = 2;
+        }
+        else if((x_ball <= shir && x_ball >= 0) && ( y_ball == 0)){
+            flag = 3;
+        }
+
         printf("%d\n%d\n%d\n", x_ball, y_ball, flag);
         if(flag == 0)
         {
@@ -85,20 +89,9 @@ void game(int player_1, int player_2){
             x_ball--;
             y_ball--;
         }
+        else if(flag == 3){
+            x_ball++;
+            y_ball++;
+        }
     }
-}
-
-
-int situation_1(int x_ball, int y_ball, int flag){
-    if((x_ball <= shir && x_ball >= 0) && y_ball == visot){
-        flag = 1;
-        printf("Ya tut");
-    }
-    return flag;
-}
-int situation_2(int x_ball, int y_ball, int flag, int player_2){
-    if((y_ball <= visot && y_ball >= 0) && (x_ball == player_2 || x_ball == player_2 -1 || x_ball == player_2 + 1 )){
-        flag = 2;
-    }
-    return flag;
 }
