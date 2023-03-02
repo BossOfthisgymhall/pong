@@ -50,7 +50,7 @@ void game(int player_1, int player_2){
     int x_ball = shir / 2;
     int y_ball = visot / 2;
     int flag = 0;
-    int x_ball_prev = x_ball - 1, y_ball_prev = y_ball - 1;
+    int x_ball_prev = x_ball, y_ball_prev = y_ball;
     while (end_game_flag != 100)
     {
         print_field(player_1, player_2, x_ball, y_ball);
@@ -67,15 +67,14 @@ void game(int player_1, int player_2){
         if((x_ball <= shir && x_ball >= 0) && y_ball == visot - 1){
            flag = 1;
         }
-        // else if((y_ball <= visot && y_ball >= 0) && (x_ball == player_2 ||
-        //  x_ball == player_2 -1 || x_ball == player_2 + 1 )){
-        //    flag = 2;
-        // }
-        else if((x_ball == shir - 1 && x_ball >= 0) && (y_ball == player_2 || y_ball == player_2 + 1 || y_ball == player_2 - 1)){
+        else if((x_ball == shir - 1 && x_ball >= 0) && ((y_ball - 1 == player_2 || y_ball - 1 == player_2 + 1 || y_ball - 1 == player_2 - 1) && (y_ball_prev == y_ball - 1))){
             flag = 2;
         }
-        else if((x_ball <= shir && x_ball >= 0) && (y_ball == 1)){
+        else if((x_ball == shir - 1 && x_ball >= 0) && ((y_ball - 1 == player_2 || y_ball - 1 == player_2 + 1 || y_ball - 1 == player_2 - 1) && (y_ball_prev == y_ball + 1))){
             flag = 3;
+        }
+        else if((x_ball <= shir && x_ball >= 0) && (y_ball == 1)){
+            flag = 0;
         }
 
         printf("%d\n%d\n%d\n", x_ball, y_ball, flag);
