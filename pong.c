@@ -65,8 +65,11 @@ void game(int player_1, int player_2){
 
             default: break;
         }
-        if((x_ball <= shir && x_ball >= 0) && y_ball == visot - 1){
-           flag = 1;
+        if((x_ball <= shir && x_ball >= 0) && ((y_ball == visot - 1) && (x_ball - 1 == x_ball_prev))){
+           flag = 0;
+        }
+        if((x_ball <= shir && x_ball >= 0) && ((y_ball == visot - 1) && (x_ball + 1 == x_ball_prev))){
+           flag = 2;
         }
         else if((x_ball == shir - 1 && x_ball >= 0) && ((y_ball - 1 == player_2 || y_ball - 1 == player_2 + 1 || y_ball - 1 == player_2 - 1) && (y_ball_prev == y_ball - 1))){
             flag = 2;
