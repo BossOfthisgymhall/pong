@@ -114,3 +114,17 @@ void game(int player_1, int player_2){
         }
     }
 }
+
+int score(int x_ball);
+{
+    int score_player_1 = 0;
+    int score_player_2 = 0;
+    if(x_ball > 80)
+    {
+        return score_player_2++;
+    }
+    else{
+        return score_player_1++;
+    }
+    return 0;
+}
