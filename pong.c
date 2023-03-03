@@ -62,26 +62,35 @@ void game(int player_1, int player_2){
             case 'z': player_1++; break;
             case 'k': player_2--; break;
             case 'm': player_2++; break;
-
             default: break;
         }
         if((x_ball <= shir && x_ball >= 0) && ((y_ball == visot - 1) && (x_ball - 1 == x_ball_prev))){
-           flag = 3;
+           flag = 1;
         }
         if((x_ball <= shir && x_ball >= 0) && ((y_ball == visot - 1) && (x_ball + 1 == x_ball_prev))){
-           flag = 0;
+           flag = 3;
         }
-        else if((x_ball == shir - 1 && x_ball >= 0) && ((y_ball - 1 == player_2 || y_ball - 1 == player_2 + 1 || y_ball - 1 == player_2 - 1) && (y_ball_prev == y_ball - 1))){
+        else if(((y_ball - 1 == player_2 || y_ball - 1 == player_2 + 1 || y_ball - 1 == player_2 - 1) && (y_ball_prev == y_ball - 1))){
             flag = 2;
             printf("voshel\n");
         }
-        else if((x_ball == shir - 1 && x_ball >= 0) && ((y_ball - 1 == player_2 || y_ball - 1 == player_2 + 1 || y_ball - 1 == player_2 - 1) && (y_ball_prev == y_ball + 1))){
+        else if(((y_ball - 1 == player_2 || y_ball - 1 == player_2 + 1 || y_ball - 1 == player_2 - 1) && (y_ball_prev == y_ball + 1))){
             flag = 3;
         }
-        else if((x_ball <= shir && x_ball >= 0) && (y_ball == 1)){
+        else if((x_ball <= shir && x_ball >= 0) && ((y_ball == 1) && (x_ball - 1 == x_ball_prev))){
             flag = 0;
         }
-        printf("%d\n%d\n%d\n%d\n", x_ball, y_ball, x_ball_prev, y_ball_prev);
+        else if((x_ball <= shir && x_ball >= 0) && ((y_ball == 1) && (x_ball + 1 == x_ball_prev))){
+            flag = 2;
+        }
+        else if(((y_ball - 1 == player_1 || y_ball - 1 == player_1 + 1 || y_ball - 1 == player_1 - 1) && (y_ball_prev == y_ball - 1))){
+            flag = 2;
+            printf("voshel\n");
+        }
+        else if(((y_ball == player_1 || y_ball == player_1 + 1 || y_ball == player_1 - 1) && (y_ball_prev == y_ball + 1))){
+            flag = 3;
+        }
+        printf("%d %d\n%d %d\n", x_ball, y_ball, x_ball_prev, y_ball_prev);
         //printf("%d\n%d\n%d\n", x_ball, y_ball, flag);
         x_ball_prev = x_ball;
         y_ball_prev = y_ball;
