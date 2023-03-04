@@ -65,30 +65,30 @@ void game(int player_1, int player_2){
             case 'e': end_game_flag = 0; break;
             default: break;
         }
-        if((x_ball <= shir && x_ball >= 0) && ((y_ball == visot - 1) && (x_ball - 1 == x_ball_prev))){ //условия для отскока от пола слева направо | предварительно верно
+        if((x_ball <= shir && x_ball >= 0) && ((y_ball == visot - 1) && (x_ball - 1 == x_ball_prev))){ //условия для отскока от пола слева направо | 
            flag = 1;
         }
-        if((x_ball <= shir && x_ball >= 0) && ((y_ball == visot - 1) && (x_ball + 1 == x_ball_prev))){  //условия для отскока от пола справа налево | предварительно верно
+        if((x_ball <= shir && x_ball >= 0) && ((y_ball == visot - 1) && (x_ball + 1 == x_ball_prev))){  //условия для отскока от пола справа налево | 
            flag = 3;
         }
-        else if(((y_ball - 1 == player_2 || y_ball - 1 == player_2 + 1 || y_ball - 1 == player_2 - 1) && (y_ball_prev == y_ball - 1))){  //условия для отскока от игрока 2 сверху вниз | предварительно верно
+        else if((x_ball == player_2) && ((y_ball == player_2 || y_ball == player_2 + 1 || y_ball == player_2 - 1) && (y_ball_prev == y_ball - 1))){  //условия для отскока от игрока 2 сверху вниз | 
             flag = 2;
             printf("voshel\n");
         }
-        else if(((y_ball - 1 == player_2 || y_ball - 1 == player_2 + 1 || y_ball - 1 == player_2 - 1) && (y_ball_prev == y_ball + 1))){ //условия для отскока от игрока 2 снизу вверх | предварительно верно
+        else if((x_ball == player_2) && ((y_ball == player_2 || y_ball == player_2 + 1 || y_ball == player_2 - 1) && (y_ball_prev == y_ball + 1))){ //условия для отскока от игрока 2 снизу вверх | 
             flag = 3;
         }
-        else if((x_ball <= shir && x_ball >= 0) && ((y_ball == 1) && (x_ball - 1 == x_ball_prev))){ //условия для отскока от потолка слева направо | предварительно верно
+        else if((x_ball <= shir && x_ball >= 0) && ((y_ball == 1) && (x_ball - 1 == x_ball_prev))){ //условия для отскока от потолка слева направо | 
             flag = 0;
         }
-        else if((x_ball <= shir && x_ball >= 0) && ((y_ball == 1) && (x_ball + 1 == x_ball_prev))){ //условия для отскока от потолка справа налево | предварительно верно
+        else if((x_ball <= shir && x_ball >= 0) && ((y_ball == 1) && (x_ball + 1 == x_ball_prev))){ //условия для отскока от потолка справа налево | 
             flag = 2;
         }
-        else if(((y_ball == player_1 || y_ball == player_1 + 1 || y_ball == player_1 - 1) && (y_ball_prev == y_ball - 1))){ //условия для отскока от игрока 1 сверху вниз |
+        else if((x_ball == player_1) && ((y_ball == player_1 || y_ball == player_1 + 1 || y_ball == player_1 - 1) && (y_ball_prev == y_ball - 1))){ //условия для отскока от игрока 1 сверху вниз |
             flag = 1;
             printf("voshel\n");
         }
-        else if(((y_ball == player_1 || y_ball == player_1 + 1 || y_ball == player_1 - 1) && (y_ball_prev == y_ball + 1))){ //условия для отскока от игрока 1 снизу вверх |
+        else if((x_ball == player_1) && ((y_ball == player_1 || y_ball == player_1 + 1 || y_ball == player_1 - 1) && (y_ball_prev == y_ball + 1))){ //условия для отскока от игрока 1 снизу вверх |
             flag = 1;
         }
         printf("%d %d\n%d %d\n", x_ball, y_ball, x_ball_prev, y_ball_prev);
@@ -115,16 +115,16 @@ void game(int player_1, int player_2){
     }
 }
 
-int score(int x_ball);
-{
-    int score_player_1 = 0;
-    int score_player_2 = 0;
-    if(x_ball > 80)
-    {
-        return score_player_2++;
-    }
-    else{
-        return score_player_1++;
-    }
-    return 0;
-}
+// int score(int x_ball);
+// {
+//     int score_player_1 = 0;
+//     int score_player_2 = 0;
+//     if(x_ball > 80)
+//     {
+//         return score_player_2++;
+//     }
+//     else{
+//         return score_player_1++;
+//     }
+//     return 0;
+// }
